@@ -13,7 +13,7 @@
     "@dh-react-hooks/use-raf": "^0.9.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@prisma/client": "^3.6.0",
+    "@prisma/client": "^3.12.0",
     "bcrypt": "^5.0.1",
     "cookie": "^0.4.1",
     "cookies": "^0.8.0",
