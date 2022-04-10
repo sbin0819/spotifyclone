@@ -35,6 +35,23 @@ const Player = ({ songs, activeSong }) => {
   const onShuffle = () => setshuffle((state) => !state);
   const onRepeat = () => setRepeat((state) => !state);
 
+  const prevSong = () =>
+    setIndex((state) => {
+      return state ? state - 1 : songs.length - 1;
+    });
+  const nextSong = () =>
+    setIndex((state) => {
+      if (shuffle) {
+        const next = Math.floor(Math.random() * songs.length);
+        if (next == state) {
+          return nextSong();
+        }
+        return next;
+      } else {
+        return state === songs.length - 1 ? 0 : state + 1;
+      }
+    });
+
   return (
     <Box>
       <Box>
