@@ -4,6 +4,7 @@ import cookie from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../lib/prisma";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = bcrypt.genSaltSync();
   const { email, password } = req.body;
@@ -15,6 +16,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         email,
         password: bcrypt.hashSync(password, salt),
+        firstName: "firstName",
+        lastName: "lastName",
       },
     });
   } catch (e) {
@@ -34,8 +37,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
 
   res.setHeader(
-    "Set-cookie",
-    cookie.serialize("SB_ACCESS_TOKEN", token, {
+    "Set-Cookie",
+    cookie.serialize("TRAX_ACCESS_TOKEN", token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: "/",

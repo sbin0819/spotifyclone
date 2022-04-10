@@ -17,8 +17,8 @@ model User {
   updatedAt DateTime   @updatedAt
   email     String     @unique
   password  String
-  firstName String
-  lastName  String
+  firstName String?
+  lastName  String?
   playlists Playlist[]
 }
 
