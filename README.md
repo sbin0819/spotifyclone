@@ -1,4 +1,4 @@
-### FRONTEND MASTERS NEXT STUDY
+### Tech Stack
 
 - React
 - Next.js
